@@ -1,12 +1,10 @@
-<div class="header">
+<?php 
+$alpha_feat_image = get_the_post_thumbnail_url(null,"large");
+?>
+<div class="header page-header" style="background-image: url(<?php echo $alpha_feat_image; ?>); ">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-            	<?php if(current_theme_supports("custom-logo")): ?>
-            	<div class="custom-logo">
-            		<?php the_custom_logo(); ?>
-            	</div>
-            <?php endif; ?>
                 <h3 class="tagline"><?php bloginfo('description'); ?></h3>
                 <h1 class="align-self-center display-1 text-center heading"><?php bloginfo('name'); ?></h1>
             </div>

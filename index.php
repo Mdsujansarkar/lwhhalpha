@@ -29,8 +29,13 @@
                     <p>
                         <?php 
                         
-                           the_excerpt();
-                       
+                      //   if(!post_password_required()){
+                      //    the_excerpt();
+                      //     }else{
+                      //     echo get_the_password_form();
+                      // }
+                          
+                       the_excerpt();
                         
                          ?>
                     </p>

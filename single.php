@@ -16,18 +16,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <p class="text-center">
+                <div class="col-md-12">
+                    <p>
                         <strong><?php the_author(); ?></strong><br/>
                         <?php echo get_the_date(); ?>
                     </p>
                     <?php echo get_the_tag_list('<ul class="list-unstyled"><li>','</li><li>','</li></ul>');?>
                 </div>
-                <div class="col-md-10 offset-md-1">
+                <div class="col-md-12">
                     <p>
-                        <?php if(has_post_thumbnail()){
-                              the_post_thumbnail('large', array('class'=>'img-fluid'));
-                    } ?>
+                       <?php
+                        if ( has_post_thumbnail() ) {
+                             $thumbnail_url = get_the_post_thumbnail_url(null,"large");
+//echo '<a href="'.$thumbnail_url.'" data-featherlight="image">';
+                                 printf( '<a href="%s" data-featherlight="image">', $thumbnail_url);
+                                the_post_thumbnail( "large", array( "class" => "img-fluid" ) );
+                                                echo '</a>';
+                                            } ?>
                     </p>
                     <p>
                         <?php 
@@ -43,7 +48,7 @@
                     </p>
                 </div>
                 <?php if(comments_open()): ?>
-                <div class="col-md-10 offset-md-1">
+                <div class="col-md-12">
                     <?php comments_template(); ?>
                 </div>
                 <?php endif; ?>
