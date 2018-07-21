@@ -73,3 +73,7 @@ Text Domain: alpha
             margin-bottom:30px;
             padding:170px 0px;
         }
+    .imggol img {
+          width:50%;
+          height:auto;
+    }

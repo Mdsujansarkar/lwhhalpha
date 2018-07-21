@@ -38,14 +38,27 @@
                         <?php 
                      the_content();
 
-                     next_post_link();
+                     wp_link_pages();
 
-                     echo "<br />";
+                     // next_post_link();
 
-                     previous_post_link();
+                     // echo "<br />";
+
+                     // previous_post_link();
                         
                          ?>
                     </p>
+                </div>
+                <div class="authorsection">
+                    <div class="row">
+                        <div class="col-md-3 imggol"> 
+                        <?php echo get_avatar(get_the_author_meta("ID")); ?>
+                        </div>
+                        <div class="col-md-9">
+                            <?php echo get_the_author_meta("display_name");  ?>
+                            <p><?php echo get_the_author_meta("description");  ?></p>
+                        </div>
+                    </div>
                 </div>
                 <?php if(comments_open()): ?>
                 <div class="col-md-12">

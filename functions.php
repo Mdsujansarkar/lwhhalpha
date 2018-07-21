@@ -17,6 +17,19 @@ function alphas_setup_theme(){
 		"flex-width"  => true
 	);
 
+	add_theme_support('post-formats',array(
+
+    'gallery',
+    'aside',
+    'link',
+    'image',
+    'quote',
+    'status',
+    'video',
+    'audio',
+    'chat'
+	));
+
 	add_theme_support("custom-logo", $alpha_logo_color);
 	register_nav_menu('header-menu',__('Top menu','alphas'));
 	register_nav_menu('footer-menu',__('footer menu','alphas'));
@@ -52,6 +65,7 @@ function alphas_enqueue_scripts(){
 	wp_enqueue_style('alphas-style',get_stylesheet_uri());
   wp_enqueue_style('alphas-css','//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
   wp_enqueue_style('feather-alphas','//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css');
+  wp_enqueue_style('dashicons');
   wp_enqueue_script('feather-light','//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'),'0.0.1',true);
   // wp_enqueue_script('main-js', get_theme_file_uri("/assetes/js/main.js"), array("jquery"),"0.0.1", true);
   
