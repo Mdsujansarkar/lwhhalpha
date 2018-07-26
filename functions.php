@@ -1,4 +1,7 @@
 <?php
+if ( class_exists( 'Attachments' ) ){
+require_once("lib/attecement.php");
+}
 function alphas_setup_theme(){
 	load_theme_textdomain('alphas');
 	add_theme_support('title-tag');
@@ -66,8 +69,10 @@ function alphas_enqueue_scripts(){
   wp_enqueue_style('alphas-css','//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
   wp_enqueue_style('feather-alphas','//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css');
   wp_enqueue_style('dashicons');
-  wp_enqueue_script('feather-light','//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'),'0.0.1',true);
-  // wp_enqueue_script('main-js', get_theme_file_uri("/assetes/js/main.js"), array("jquery"),"0.0.1", true);
+  wp_enqueue_style('tiny-slider','//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.2/tiny-slider.css');
+  // wp_enqueue_script('feather-light','//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'),'0.0.1',true);
+  wp_enqueue_script('feather-light','//cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.8.2/min/tiny-slider.js', null,'0.0.1',true);
+   wp_enqueue_script('main-js', get_theme_file_uri("/assetes/js/main.js"), array("jquery"),"0.0.1", true);
   
 }
 add_action('wp_enqueue_scripts','alphas_enqueue_scripts');
@@ -87,6 +92,18 @@ function alpha_title_change(){
 	return "%s";
 }
 
+function add_siodebar_alpha(){
+	register_sidebar(array(
+   "name"  =>"sidebar first",
+   "id"    => "sidebar-1",
+    'before_widget' => '',
+    'after_widget'  => '',
+     'before_title'  => '',
+     'after_title'   => '',
+	));
+
+}
+add_action("widgets_init","add_siodebar_alpha");
 
 add_filter("protected_title_format","alpha_title_change");
 
