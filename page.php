@@ -6,15 +6,39 @@
     <?php while(have_posts()):
       the_post();
      ?>
+     
     <div class="post" <?php post_class(); ?>>
         <div class="container">
          <div class="row">
                 <div class="col-md-10 offset-md-1">
                     <h2 class="post-title text-center" ><?php the_title(); ?></h2>
+
                 </div>
             </div>
+
             <div class="row">
+            
+              <div class="row">
                 <div class="col-md-10 offset-md-1">
+                   <div class=" testimonials alpha_a text-center"> 
+                    <?php 
+                      if ( class_exists( 'Attachments' ) ){
+                       $attechments = new Attachments('testimonials');
+                       if($attechments ->exist()){
+                         while($attechment = $attechments -> get()){ ?>
+
+                          <?php echo  $attechments ->image("thumbnail");?>
+                          <h4><?php echo esc_html( $attechments ->field("name"));?></h4>
+                          <p><?php echo esc_html( $attechments ->field("position"));?></p>
+                          <p><?php echo esc_html( $attechments ->field("company"));?></p>
+                          <p><?php echo esc_html( $attechments ->field("testimonial"));?></p>
+                        <?php  } 
+                       }
+
+                      } ?>
+                     <h1>hellow</h1>
+                  </div>
+                </div>
                     <p class="text-center">
                         <strong><?php the_author(); ?></strong><br/>
                         <?php echo get_the_date(); ?>

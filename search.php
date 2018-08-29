@@ -18,20 +18,17 @@
      ?>
     
     <?php endwhile; ?>
-  
-    <div class="container post-pagination">
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-8">
-                <?php 
-
-                 the_posts_pagination(array(
-                  'screen_reader_text' =>' ',
-
-                 ));
-                ?>
-            </div>
-        </div>
-    </div>
+    <div class="contanier">
+       <div class="row">
+         <div class="col-md-12 text-center"> 
+        
+          <?php if(is_search()){ ?>
+            <h3>your search query:<?php the_search_query(); ?></h3>
+          <?php } ?>
+        <?php echo get_search_form(); ?>
+         </div>
+       </div>
+     </div>
+   
 </div>
 <?php get_footer(); ?>

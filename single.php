@@ -77,6 +77,34 @@ if(!is_active_sidebar("sidebar-1")){
                          ?>
                     </p>
                 </div>
+                <div class="contanier">
+                  <div class="row">
+                    
+                         
+                      <?php 
+                      if ( class_exists( 'Attachments' ) ){
+                       $attechments = new Attachments('team');
+                       if($attechments ->exist()){
+                        while($attechment = $attechments -> get()){ ?>
+                          <div class="col-md-4"> 
+                        <div>
+                          <?php echo $attechments ->image("thumbnail");?>
+                          <p><?php echo $attechments ->field("tname");?></p>
+                          <p><?php echo $attechments ->field("tposition");?></p>
+                          <p><?php echo $attechments ->field("tcompany");?></p>
+                          <p><?php echo $attechments ->field("ttestimonial");?></p>
+                        </div>
+                      </div>
+                      <?php  
+                       }
+                    }
+                       }
+
+                      ?>
+                    
+                    
+                  </div>
+                </div>
                 <div class="authorsection">
                     <div class="row">
                         <div class="col-md-3 imggol"> 

@@ -33,6 +33,19 @@ Text Domain: alpha
             margin-bottom: 30px;
         }
 
+
+    .testimonials img{
+        width:120px;
+        height:auto;
+        
+        border-radius: 60px;
+        margin-bottom: 10px;
+    }
+
+
+
+
+
         .post {
             margin-bottom: 50px;
         }
@@ -76,4 +89,8 @@ Text Domain: alpha
     .imggol img {
           width:50%;
           height:auto;
+    }
+    .high-light{
+        background: red;
+        color:red;
     }

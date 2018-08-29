@@ -11,5 +11,7 @@
             nav:false,
             autoplayButtonOutput:false
         });
+
+     
     });
 })(jQuery);
